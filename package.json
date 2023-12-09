@@ -6,7 +6,9 @@
   "author": "Maximiliano Osorio",
   "license": "MIT",
   "dependencies": {
+    "@comunica/query-sparql": "^2.10.1",
     "@types/node": "^20.10.4",
+    "rdf-data-factory": "^1.1.2",
     "rdf-dereference": "^2.2.0",
     "rdf-store-stream": "^2.0.0",
     "typescript": "^5.3.3"
