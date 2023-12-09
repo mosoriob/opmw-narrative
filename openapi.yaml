@@ -1,0 +1,1316 @@
+openapi: 3.0.1
+info:
+  description: Example of the opmw ontology
+  title: opmw
+  version: v1.0.0
+externalDocs:
+  description: open provenance ontology for workflows
+  url: http://datos.opmw.es/def/
+paths:
+  /datavariables:
+    get:
+      description: Gets a list of all instances of DataVariable (more information
+        in http://www.opmw.org/ontology/DataVariable)
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      - description: Page number
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Items per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/DataVariable'
+                type: array
+          description: Successful response - returns an array with the instances of
+            DataVariable.
+      summary: List all instances of DataVariable
+      tags:
+      - DataVariable
+  /datavariables/{id}:
+    get:
+      description: Gets the details of a given DataVariable (more information in http://www.opmw.org/ontology/DataVariable)
+      parameters:
+      - description: The ID of the DataVariable to be retrieved
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataVariable'
+          description: Gets the details of a given DataVariable
+      summary: Get a single DataVariable by its id
+      tags:
+      - DataVariable
+  /parametervariables:
+    get:
+      description: Gets a list of all instances of ParameterVariable (more information
+        in http://www.opmw.org/ontology/ParameterVariable)
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      - description: Page number
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Items per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ParameterVariable'
+                type: array
+          description: Successful response - returns an array with the instances of
+            ParameterVariable.
+      summary: List all instances of ParameterVariable
+      tags:
+      - ParameterVariable
+  /parametervariables/{id}:
+    get:
+      description: Gets the details of a given ParameterVariable (more information
+        in http://www.opmw.org/ontology/ParameterVariable)
+      parameters:
+      - description: The ID of the ParameterVariable to be retrieved
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParameterVariable'
+          description: Gets the details of a given ParameterVariable
+      summary: Get a single ParameterVariable by its id
+      tags:
+      - ParameterVariable
+  /workflowexecutionaccounts:
+    get:
+      description: Gets a list of all instances of WorkflowExecutionAccount (more
+        information in http://www.opmw.org/ontology/WorkflowExecutionAccount)
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      - description: Page number
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Items per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WorkflowExecutionAccount'
+                type: array
+          description: Successful response - returns an array with the instances of
+            WorkflowExecutionAccount.
+      summary: List all instances of WorkflowExecutionAccount
+      tags:
+      - WorkflowExecutionAccount
+  /workflowexecutionaccounts/{id}:
+    get:
+      description: Gets the details of a given WorkflowExecutionAccount (more information
+        in http://www.opmw.org/ontology/WorkflowExecutionAccount)
+      parameters:
+      - description: The ID of the WorkflowExecutionAccount to be retrieved
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowExecutionAccount'
+          description: Gets the details of a given WorkflowExecutionAccount
+      summary: Get a single WorkflowExecutionAccount by its id
+      tags:
+      - WorkflowExecutionAccount
+  /workflowexecutionartifacts:
+    get:
+      description: Gets a list of all instances of WorkflowExecutionArtifact (more
+        information in http://www.opmw.org/ontology/WorkflowExecutionArtifact)
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      - description: Page number
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Items per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WorkflowExecutionArtifact'
+                type: array
+          description: Successful response - returns an array with the instances of
+            WorkflowExecutionArtifact.
+      summary: List all instances of WorkflowExecutionArtifact
+      tags:
+      - WorkflowExecutionArtifact
+  /workflowexecutionartifacts/{id}:
+    get:
+      description: Gets the details of a given WorkflowExecutionArtifact (more information
+        in http://www.opmw.org/ontology/WorkflowExecutionArtifact)
+      parameters:
+      - description: The ID of the WorkflowExecutionArtifact to be retrieved
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowExecutionArtifact'
+          description: Gets the details of a given WorkflowExecutionArtifact
+      summary: Get a single WorkflowExecutionArtifact by its id
+      tags:
+      - WorkflowExecutionArtifact
+  /workflowexecutionprocesss:
+    get:
+      description: Gets a list of all instances of WorkflowExecutionProcess (more
+        information in http://www.opmw.org/ontology/WorkflowExecutionProcess)
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      - description: Page number
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Items per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WorkflowExecutionProcess'
+                type: array
+          description: Successful response - returns an array with the instances of
+            WorkflowExecutionProcess.
+      summary: List all instances of WorkflowExecutionProcess
+      tags:
+      - WorkflowExecutionProcess
+  /workflowexecutionprocesss/{id}:
+    get:
+      description: Gets the details of a given WorkflowExecutionProcess (more information
+        in http://www.opmw.org/ontology/WorkflowExecutionProcess)
+      parameters:
+      - description: The ID of the WorkflowExecutionProcess to be retrieved
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowExecutionProcess'
+          description: Gets the details of a given WorkflowExecutionProcess
+      summary: Get a single WorkflowExecutionProcess by its id
+      tags:
+      - WorkflowExecutionProcess
+  /workflowtemplates:
+    get:
+      description: Gets a list of all instances of WorkflowTemplate (more information
+        in http://www.opmw.org/ontology/WorkflowTemplate)
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      - description: Page number
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Items per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WorkflowTemplate'
+                type: array
+          description: Successful response - returns an array with the instances of
+            WorkflowTemplate.
+      summary: List all instances of WorkflowTemplate
+      tags:
+      - WorkflowTemplate
+  /workflowtemplates/{id}:
+    get:
+      description: Gets the details of a given WorkflowTemplate (more information
+        in http://www.opmw.org/ontology/WorkflowTemplate)
+      parameters:
+      - description: The ID of the WorkflowTemplate to be retrieved
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowTemplate'
+          description: Gets the details of a given WorkflowTemplate
+      summary: Get a single WorkflowTemplate by its id
+      tags:
+      - WorkflowTemplate
+  /workflowtemplateartifacts:
+    get:
+      description: Gets a list of all instances of WorkflowTemplateArtifact (more
+        information in http://www.opmw.org/ontology/WorkflowTemplateArtifact)
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      - description: Page number
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Items per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WorkflowTemplateArtifact'
+                type: array
+          description: Successful response - returns an array with the instances of
+            WorkflowTemplateArtifact.
+      summary: List all instances of WorkflowTemplateArtifact
+      tags:
+      - WorkflowTemplateArtifact
+  /workflowtemplateartifacts/{id}:
+    get:
+      description: Gets the details of a given WorkflowTemplateArtifact (more information
+        in http://www.opmw.org/ontology/WorkflowTemplateArtifact)
+      parameters:
+      - description: The ID of the WorkflowTemplateArtifact to be retrieved
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowTemplateArtifact'
+          description: Gets the details of a given WorkflowTemplateArtifact
+      summary: Get a single WorkflowTemplateArtifact by its id
+      tags:
+      - WorkflowTemplateArtifact
+  /workflowtemplateprocesss:
+    get:
+      description: Gets a list of all instances of WorkflowTemplateProcess (more information
+        in http://www.opmw.org/ontology/WorkflowTemplateProcess)
+      parameters:
+      - description: Filter by label
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+      - description: Page number
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Items per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WorkflowTemplateProcess'
+                type: array
+          description: Successful response - returns an array with the instances of
+            WorkflowTemplateProcess.
+      summary: List all instances of WorkflowTemplateProcess
+      tags:
+      - WorkflowTemplateProcess
+  /workflowtemplateprocesss/{id}:
+    get:
+      description: Gets the details of a given WorkflowTemplateProcess (more information
+        in http://www.opmw.org/ontology/WorkflowTemplateProcess)
+      parameters:
+      - description: The ID of the WorkflowTemplateProcess to be retrieved
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowTemplateProcess'
+          description: Gets the details of a given WorkflowTemplateProcess
+      summary: Get a single WorkflowTemplateProcess by its id
+      tags:
+      - WorkflowTemplateProcess
+components:
+  schemas:
+    Agent:
+      description: Description not available
+      example:
+        value:
+          id: some_id
+      properties:
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    WorkflowTemplate:
+      description: "A workflow template represents the design of the workflow. In\
+        \ such design, the different steps and inputs don't have to be bound to a\
+        \ specific tool or dataset. It is a generic view of the workflow, which is\
+        \ instantiated in each execution.\n \nExample:\n@prefix dc:  <http://purl.org/dc/terms/>\
+        \ .\n@prefix opmw: <http://www.opmw.org/ontology/> .\n<http://www.opmw.org/export/resource/WorkflowTemplate/AQUAFLOW_NTM>\n\
+        \     a opmw:WorkflowTemplate;\n     rdfs:label \"AquaFlow_NTM\" ;\n     dc.contributor\n\
+        \              <http://www.opmw.org/export/resource/Agent/WATER> ;\n     dc:modified\n\
+        \              \"2011-06-08T09:57:12-07:00\"^^xsd:dateTime ;\n     opmw:hasVersion\
+        \ \"2\"^^xsd:int ."
+      example:
+        value:
+          id: some_id
+      properties:
+        hasTemplateDiagram:
+          description: |-
+            Property used to link a workflow template to its graphical representation.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+
+            <http://www.opmw.org/export/resource/WorkflowTemplate/AQUAFLOW_NTM>
+                 a opmw:WorkflowTemplate;
+                 opmw:hasTemplateDiagram "http://wind.isi.edu/marbles/assets/components/workflow_portal/users/1/Water/runs/run_148.png"xsd:anyURI.
+          items:
+            type: string
+          nullable: true
+          type: array
+        hasDocumentation:
+          description: |-
+            Property that binds a workflow template to its documentation.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+            <http://www.opmw.org/export/resource/WorkflowTemplate/AQUAFLOW_NTM>
+                  a opmw:WorkflowTemplate;
+                  opmw:hasDocumentation "A copy of the documentation related to this template "^^xsd:string.
+          items:
+            anyOf:
+            - format: uri
+              type: string
+            - type: string
+          nullable: true
+          type: array
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        hasNativeSystemTemplate:
+          description: |-
+            Property used to link a workflow template to its native template (encoded in the syntax of the workflow system where it was designed: scufl, owl, etc.).
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+
+            <http://www.opmw.org/export/resource/WorkflowTemplate/AQUAFLOW_NTM>
+                 a opmw:WorkflowTemplate;
+                 opmw:hasNativeSystemTemplate "http://wind.isi.edu/marbles/assets/components/workflow_portal/users/1/Water/ontology/Water/AquaFlow_NTM.owl"xsd:anyURI.
+          items:
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+        createdInWorkflowSystem:
+          description: |-
+            This data property binds a workflow template to the tool used for its design and creation. The tool is represented by its URL.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+
+            <http://www.opmw.org/export/resource/WorkflowTemplate/AQUAFLOW_EDM>
+                     a opmw:WorkflowTemplate;
+                     opmw:createdInWorkflowSystem "http://wings.isi.edu"^^xsd:anyURI.
+          items:
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    WorkflowExecutionProcess:
+      description: |-
+        A workflow execution process represents the execution of a step in workflow template. The execution process also describes the specific method used to acomplish the task described in the proces template.
+
+        Example:
+        @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+        @prefix opmw: <http://www.opmw.org/ontology/> .
+        @prefix opmv: <http://purl.org/net/opmv/ns#> .
+        @prefix opmo: <http://openprovenance.org/model/opmo#> .
+
+        <http://www.opmw.org/export/resource/WorkflowExecutionProcess/CONVERTTOSTANDARDFORMAT133553>
+              a      opmw:/WorkflowExecutionProcess , opmv:Process ;
+              rdfs:label "Execution process ConvertToStandardFormat" ;
+              opmo:account              <http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1335533097598> ;
+              opmv:used              <http://www.opmw.org/export/resource/WorkflowExecutionArtifact/6C7CF277338D9590EE18534D4D78924F> ;
+              opmv:wasControlledBy               <http://www.opmw.org/export/resource/Agent/ADMIN> ;
+              opmw:hasWorkflowTemplateProcess              <http://www.opmw.org/export/resource/WorkflowTemplateProcess/AQUAFLOW_EDM_CONVERTTOSTANDARDFORMAT> .
+      example:
+        value:
+          id: some_id
+      properties:
+        hasExecutableComponent:
+          description: |-
+            Property that binds a workflow execution process to the specific component (code, scripts, etc.) used in the execution.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+            @prefix opmv: <http://purl.org/net/opmv/ns#> .
+
+            <http://www.opmw.org/export/resource/WorkflowExecutionProcess/REAERATIONEDM133549210450086>
+                 a opmv:Process, opmw:WorkflowExecutionProcess;
+                 opmw:hasExecutableComponent <http://www.opmw.org/export/resource/ReaerationEDM/COMPONENTREAERATIONEDM>.
+          items:
+            description: |-
+              Property that binds a workflow execution process to the specific component (code, scripts, etc.) used in the execution.
+
+              Example:
+              @prefix opmw: <http://www.opmw.org/ontology/> .
+              @prefix opmv: <http://purl.org/net/opmv/ns#> .
+
+              <http://www.opmw.org/export/resource/WorkflowExecutionProcess/REAERATIONEDM133549210450086>
+                   a opmv:Process, opmw:WorkflowExecutionProcess;
+                   opmw:hasExecutableComponent <http://www.opmw.org/export/resource/ReaerationEDM/COMPONENTREAERATIONEDM>.
+            type: object
+          maxItems: 1
+          nullable: true
+          type: array
+        hasOriginalLogFile:
+          description: |-
+            Property used to link an execution account or a workflow execution process to the correspondent log file produced by the enacting workflow engine.
+
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+            @prefix opmo: <http://openprovenance.org/model/opmo#> .
+
+            <http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1335506667949>
+                 a opmw:WorkflowExecutionAccount,opmo:Account;
+                 opmw:hasOriginalLogFile "http://wind.isi.edu/marbles/assets/components/workflow_portal/users/1/Water/runs/run_148.ttl"^^sxd:anyURI.
+          items:
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        correspondsToTemplateProcess:
+          description: "Property that binds a workflow execution process  to its correspondant\
+            \ process template.\n\nExample:\n@prefix opmw: <http://www.opmw.org/ontology/>\
+            \ .\n@prefix opmv: <http://purl.org/net/opmv/ns#> .\n\n<http://www.opmw.org/export/resource/WorkflowExecutionProcess/REAERATIONEDM133549210450086>\n\
+            \     a opmv:Process, opmw:WorkflowExecutionProcess;\n     opmw:correspondsToTemplateProcess\
+            \ <http://www.opmw.org/export/resource/WorkflowTemplateProcess/AQUAFLOW_EDM_REAERATIONEDM>. "
+          items:
+            $ref: '#/components/schemas/WorkflowTemplateProcess'
+          nullable: true
+          type: array
+      type: object
+    ParameterVariable:
+      description: |-
+        An parameter variable represents a description of an input parameter of a process. Parameter variables can only be used by process.
+
+        Example:
+        @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+        @prefix opmw: <http://www.opmw.org/ontology/> .
+
+        <http://www.opmw.org/export/resource/ParameterVariable/AQUAFLOW_NTM_LATITUDE>
+              a      opmw:/WorkflowTemplateArtifact , opmw:ParameterVariable ;
+              rdfs:label "Parameter variable Latitude" ;
+              opmw:template              <http://www.opmw.org/export/resource/WorkflowTemplate/AQUAFLOW_NTM> .
+      example:
+        value:
+          id: some_id
+      properties:
+        hasDimensionality:
+          description: |
+            Property that represents the dimensionality of the artifact: 0 is a single file, 1 for a collection, etc.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+
+            <http://www.opmw.org/export/resource/DataVariable/AQUAFLOW_NTM_DAILYDATA>
+                 a opmw:DataVariable, opmw:WorkflowTemplateArtifact;
+                 opmw:hasDimensionality "1"^^xsd:int.
+          items:
+            format: int32
+            type: integer
+          maxItems: 1
+          nullable: true
+          type: array
+        isGeneratedBy:
+          description: |+
+            Property that binds a workflow template artifact to the workflow template process that generates it.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+
+            <http://www.opmw.org/export/resource/DataVariable/AQUAFLOW_EDM_REAERATIONPARAMS>
+                 a opmw:DataVariable, opmw:WorkflowTemplateArtifact;
+                 opmw:isGeneratedBy <http://www.opmw.org/export/resource/WorkflowTemplateProcess/AQUAFLOW_EDM_REAERATIONEDM>.
+
+          items:
+            $ref: '#/components/schemas/WorkflowTemplateProcess'
+          nullable: true
+          type: array
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        isParameterOfTemplate:
+          description: |-
+            Property used to dessignate which workflow Parameter Variables belong to a workflow template.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+
+            <http://www.opmw.org/export/resource/ParameterVariable/AQUAFLOW_EDM_DATE>
+                 a opmw:ParameterVariable;
+                 opmw:isParameterOfTemplate <http://www.opmw.org/export/resource/WorkflowTemplate/AQUAFLOW_EDM>.
+          items:
+            $ref: '#/components/schemas/WorkflowTemplate'
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    DataVariable:
+      description: |-
+        A Data variable is a workflow template artifact that represents a variable in the workflow specification.
+
+        Example:
+        @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+        @prefix opmw: <http://www.opmw.org/ontology/> .
+
+        <http://www.opmw.org/export/resource/DataVariable/AQUAFLOW_NTM_SUM_CORRDO>
+              a      opmw:WorkflowTemplateArtifact , opmw:DataVariable ;
+              rdfs:label "Data variable Sum_CorrDO" ;
+              opmw:hasDimensionality "0"^^xsd:int ;
+              opmw:isGeneratedBy              <http://www.opmw.org/export/resource/WorkflowTemplateProcess/AQUAFLOW_NTM_CREATEPLOTS> ;
+              opmw:template              <http://www.opmw.org/export/resource/WorkflowTemplate/AQUAFLOW_NTM> .
+      example:
+        value:
+          id: some_id
+      properties:
+        hasDimensionality:
+          description: |
+            Property that represents the dimensionality of the artifact: 0 is a single file, 1 for a collection, etc.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+
+            <http://www.opmw.org/export/resource/DataVariable/AQUAFLOW_NTM_DAILYDATA>
+                 a opmw:DataVariable, opmw:WorkflowTemplateArtifact;
+                 opmw:hasDimensionality "1"^^xsd:int.
+          items:
+            format: int32
+            type: integer
+          maxItems: 1
+          nullable: true
+          type: array
+        isGeneratedBy:
+          description: |+
+            Property that binds a workflow template artifact to the workflow template process that generates it.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+
+            <http://www.opmw.org/export/resource/DataVariable/AQUAFLOW_EDM_REAERATIONPARAMS>
+                 a opmw:DataVariable, opmw:WorkflowTemplateArtifact;
+                 opmw:isGeneratedBy <http://www.opmw.org/export/resource/WorkflowTemplateProcess/AQUAFLOW_EDM_REAERATIONEDM>.
+
+          items:
+            $ref: '#/components/schemas/WorkflowTemplateProcess'
+          nullable: true
+          type: array
+        isVariableOfTemplate:
+          description: |-
+            Property used to dessignate which workflow Data Variables belong to a workflow template.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+
+            <http://www.opmw.org/export/page/resource/DataVariable/AQUAFLOW_EDM_HOURLYDATA>
+                 a opmw:DataVariable;
+                 opmw:isVariableOfTemplate <http://www.opmw.org/export/resource/WorkflowTemplate/AQUAFLOW_EDM>.
+          items:
+            $ref: '#/components/schemas/WorkflowTemplate'
+          nullable: true
+          type: array
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    WorkflowTemplateProcess:
+      description: "A workflow process template is an abstraction of the workflow\
+        \ execution process step that aims to describe the method followed by the\
+        \ scientist instead of its specific instantiation.\n\nExample:\n@prefix opmw:\
+        \ <http://www.opmw.org/ontology/> .\n@prefix water: <http://www.isi.edu/ac/Water/library.owl#>\
+        \ .\n\n<http://www.opmw.org/export/resource/WorkflowTemplateProcess/AQUAFLOW_NTM_CALCULATEHOURLYAVERAGES>\n\
+        \      a opmw:ProcessTemplate, water:CalculateHourlyAverages;\n      opmw:template\
+        \ <http://www.opmw.org/export/resource/WorkflowTemplate/AQUAFLOW_NTM>;\n \
+        \     opmw:uses <http://www.opmw.org/export/resource/DataVariable/AQUAFLOW_NTM_FILTEREDDATA>.\n\
+        \      "
+      example:
+        value:
+          id: some_id
+      properties:
+        isStepOfTemplate:
+          description: |-
+            Property used to dessignate which workflow Steps (or Workflow Template Processes) belong to a workflow template.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+
+            <http://www.opmw.org/export/resource/WorkflowTemplateProcess/AQUAFLOW_EDM_CALCULATEHOURLYAVERAGES>
+                 a opmw:WorkflowTemplateProcess;
+                 opmw:isStepOfTemplate <http://www.opmw.org/export/resource/WorkflowTemplate/AQUAFLOW_EDM>.
+          items:
+            $ref: '#/components/schemas/WorkflowTemplate'
+          nullable: true
+          type: array
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        uses:
+          description: |-
+            Property that binds a workflow template process to the workflow template artifact that generates it.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+
+            <http://www.opmw.org/export/resource/WorkflowTemplateProcess/AQUAFLOW_EDM_REAERATIONEDM>
+                 a opmw:WorkflowTemplateProcess;
+                 opmw:uses <http://www.opmw.org/export/resource/DataVariable/PARAMETERSFILE>.
+          items:
+            $ref: '#/components/schemas/WorkflowTemplateArtifact'
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    WorkflowExecutionAccount:
+      description: |-
+        A workflow execution account represents the execution from the perspective of the system.
+
+        Example:
+        @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+        @prefix opmw: <http://www.opmw.org/ontology/> .
+        @prefix opmo: <http://openprovenance.org/model/opmo#> .
+
+        <http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1335533097598>
+              a       opmo:Account , opmw:WorkflowExecutionAccount> ;
+              rdfs:label "Execution account created on 1335533097598" ;
+              opmw:executedInWorkflowSystem
+                      <http://www.opmw.org/export/resource/Agent/SHELL> ;
+             opmw:hasEndTime
+                      "2012-04-25T07:17:48-07:00"^^xsd:dateTime ;
+              opmw:hasExecutionDiagram "http://wind.isi.edu/marbles/assets/components/workflow_portal/users/1/Water/runs/run_144.png"^^xsd:anyURI ;
+              opmw:hasStartTime               "2012-04-25T07:17:05-07:00"^^xsd:dateTime ;
+              opmw:hasStatus "SUCCESS" ;
+      example:
+        value:
+          id: some_id
+      properties:
+        overallEndTime:
+          description: |-
+            Property which states that none of the activities contained in the account finished executing after the End Time.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+            @prefix opmo: <http://openprovenance.org/model/opmo#> .
+
+            <http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1335506667949>
+                 a opmw:WorkflowExecutionAccount,opmo:Account;
+                 opmw:overallEndTime "2012-04-25T10:28:55-07:00"^^xsd:dateTime.
+          items:
+            format: date-time
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+        hasStatus:
+          description: |-
+            Property used to state whether an ececution account was successful or not.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+            @prefix opmo: <http://openprovenance.org/model/opmo#> .
+
+            <http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1335506667949>
+                  a opmo:Account, opmw:ExecutionAccount;
+                  opmw:hasStatus "SUCCESS"^^xsd.string.
+          items:
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+        hasOriginalLogFile:
+          description: |-
+            Property used to link an execution account or a workflow execution process to the correspondent log file produced by the enacting workflow engine.
+
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+            @prefix opmo: <http://openprovenance.org/model/opmo#> .
+
+            <http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1335506667949>
+                 a opmw:WorkflowExecutionAccount,opmo:Account;
+                 opmw:hasOriginalLogFile "http://wind.isi.edu/marbles/assets/components/workflow_portal/users/1/Water/runs/run_148.ttl"^^sxd:anyURI.
+          items:
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+        executedInWorkflowSystem:
+          description: "Property to bind an execution account to the system where\
+            \ it was executed (which could be different from the one used for designing\
+            \ its workflow template).\n\nExample:\n@prefix opmw: <http://www.opmw.org/ontology/>\
+            \ .\n@prefix opmo: <http://openprovenance.org/model/opmo#> .\n\n<http://www.opmw.org/export/resource/WorkflowExecutionAccount/acc1>\n\
+            \      a opmo:Account, opmw:executionAccount;\n      opmw:executedInWorkflowSystem\
+            \ <http://www.opmw.org/export/resource/Agent/SHELL>.\n\n<http://www.opmw.org/export/resource/Agent/SHELL>\
+            \ \n     a opmw:Agent."
+          items:
+            $ref: '#/components/schemas/Agent'
+          nullable: true
+          type: array
+        overallStartTime:
+          description: |-
+            Property which states that none of the activities in the current account started executing before the start time.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+            @prefix opmo: <http://openprovenance.org/model/opmo#> .
+
+            <http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1335506667949>
+                 a opmw:WorkflowExecutionAccount,opmo:Account;
+                 opmw:overallStartTime "2012-04-25T10:28:07-07:00"^^xsd:dateTime.
+          items:
+            format: date-time
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        hasExecutionDiagram:
+          description: |-
+            Property that links an execution account to its diagram. The diagram shows how the template has been instantiated with different components.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+            @prefix opmo: <http://openprovenance.org/model/opmo#> .
+
+            <http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1335506667949>
+                 a opmw:WorkflowExecutionAccount,opmo:Account;
+                 opmw:hasExecutionDiagram "http://wind.isi.edu/marbles/assets/components/workflow_portal/users/1/Water/runs/run_148.png"^^sxd:anyURI.
+          items:
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        correspondsToTemplate:
+          description: |-
+            Property that binds an execution account to the template of the whole workflow. The template contains the plan for the workflow.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+            @prefix opmo: <http://openprovenance.org/model/opmo#> .
+
+            <http://www.opmw.org/export/resource/WorkflowExecutionProcess/acc1>
+                 a opmo:Account, opmw:workflowExecutionAccount;
+                 opmw:correspondsToTemplate <http://www.opmw.org/export/resource/WorkflowTemplate/AQUAFLOW_EDM>.
+          items:
+            $ref: '#/components/schemas/WorkflowTemplate'
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    WorkflowTemplateArtifact:
+      description: |-
+        A workflow template artifact is part of a workflow template. It explains what kind of artifact is used or generated by the process template, along with possible restrictions that it may have.
+
+        There are two different types of workflow template artifacts: data variables and parameter variables.
+      example:
+        value:
+          id: some_id
+      properties:
+        hasDimensionality:
+          description: |
+            Property that represents the dimensionality of the artifact: 0 is a single file, 1 for a collection, etc.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+
+            <http://www.opmw.org/export/resource/DataVariable/AQUAFLOW_NTM_DAILYDATA>
+                 a opmw:DataVariable, opmw:WorkflowTemplateArtifact;
+                 opmw:hasDimensionality "1"^^xsd:int.
+          items:
+            format: int32
+            type: integer
+          maxItems: 1
+          nullable: true
+          type: array
+        isGeneratedBy:
+          description: |+
+            Property that binds a workflow template artifact to the workflow template process that generates it.
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+
+            <http://www.opmw.org/export/resource/DataVariable/AQUAFLOW_EDM_REAERATIONPARAMS>
+                 a opmw:DataVariable, opmw:WorkflowTemplateArtifact;
+                 opmw:isGeneratedBy <http://www.opmw.org/export/resource/WorkflowTemplateProcess/AQUAFLOW_EDM_REAERATIONEDM>.
+
+          items:
+            $ref: '#/components/schemas/WorkflowTemplateProcess'
+          nullable: true
+          type: array
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    WorkflowExecutionArtifact:
+      description: |-
+        A workflow execution artifact represents a resource used or generated in the execution of a workflow.
+
+        Example:
+        @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+        @prefix opmw: <http://www.opmw.org/ontology/> .
+        @prefix opmv: <http://purl.org/net/opmv/ns#> .
+        @prefix opmo: <http://openprovenance.org/model/opmo#> .
+
+        <http://www.opmw.org/export/resource/WorkflowExecutionArtifact/25F1016C12EBE301EE7AADBC0B085C45>
+              a       opmw:WorkflowExecutionArtifact , opmv:Artifact;
+              rdfs:label "Execution artifact with id: 25f1016c12ebe301ee7aadbc0b085c45" ;
+              opmo:account              <http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1335533097598> ;
+              opmv:wasGeneratedBy     <http://www.opmw.org/export/resource/WorkflowExecutionProcess/p1> ;
+              opmw:hasLocation     "http://wings.isi.edu/opmexport/resource/1/144/Formatted_SMN_2010_03_10Z"^^xsd:anyURI ;
+              opmw:hasSize "8618"^^xsd:int ;
+              opmw:hasWorkflowTemplateArtifact              <http://www.opmw.org/export/resource/DataVariable/AQUAFLOW_EDM_FORMATTEDDATA>.
+      example:
+        value:
+          id: some_id
+      properties:
+        hasSize:
+          description: |-
+            Property used to annotate a workflow execution artifact with the size in bytes of its file.
+
+            Example
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+            @prefix opmv: <http://purl.org/net/opmv/ns#> .
+
+            <http://www.opmw.org/export/resource/WorkflowExecutionArtifact/DCF49186981194248009E24BAD6A6412>
+                  a opmv:Artifact, opmw:WorkflowExecutionArtifact.
+                  opmw:hasLocation "68"^^xsd:int.
+          items:
+            format: int32
+            type: integer
+          maxItems: 1
+          nullable: true
+          type: array
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        hasValue:
+          description: |-
+            Property used to state the value of the artifact (in case of being a parameter).
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+            @prefix opmv: <http://purl.org/net/opmv/ns#> .
+
+            <http://www.opmw.org/export/resource/WorkflowExecutionArtifact/DEPTH0.61959237>
+                 a opmv:Artifact, opmw:WorkflowExecutionArtifact;
+                 opmw:hasValue "0.61959237"^^xsd:string.
+          items:
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+        hasLocation:
+          description: |-
+            Property used to link an execution artifact to the physical location of its file in the server.
+
+            Example
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+            @prefix opmv: <http://purl.org/net/opmv/ns#> .
+
+            <http://www.opmw.org/export/resource/WorkflowExecutionArtifact/DCF49186981194248009E24BAD6A6412>
+                  a opmv:Artifact, opmw:WorkflowExecutionArtifact.
+                  opmw:hasLocation "http://www.opmw.org/datasets/resource/1/148/NTMParams_SMN_2010_03_14Z"^^xsd:anyURI.
+          items:
+            type: string
+          nullable: true
+          type: array
+        hasFileName:
+          description: |-
+            Property used to link an execution artifact to its file name (independently of its URI).
+
+            Example:
+            @prefix opmw: <http://www.opmw.org/ontology/> .
+            @prefix opmv: <http://purl.org/net/opmv/ns#> .
+
+            <http://www.opmw.org/export/resource/WorkflowExecutionArtifact/DCF49186981194248009E24BAD6A6412>
+                  a opmv:Artifact, opmw:WorkflowExecutionArtifact.
+                  opmw:hasFileName "NTMParams_SMN_2010_03_14Z"^^xsd:string.
+          items:
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        correspondsToTemplateArtifact:
+          description: "Property that binds a workflow execution artifact to its correspondant\
+            \ workflow template artifact.\n\nExample:\n@prefix opmw: <http://www.opmw.org/ontology/>\
+            \ .\n@prefix opmv: <http://purl.org/net/opmv/ns#> .\n\n<http://www.opmw.org/export/resource/WorkflowExecutionArtifact/DEPTH1.2150836>\
+            \ \n       a opmv:Artifact, opmw:WorkflowExecutionArtifact;\n       opmw:correspondsToTemplateArtifact\
+            \ <http://www.opmw.org/export/resource/ParameterVariable/AQUAFLOW_EDM_DEPTH>."
+          items:
+            $ref: '#/components/schemas/WorkflowTemplateArtifact'
+          nullable: true
+          type: array
+      type: object
+  securitySchemes:
+    BearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http
+      x-bearerInfoFunc: openapi_server.controllers.user_controller.decode_token
