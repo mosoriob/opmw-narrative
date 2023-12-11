@@ -1,5 +1,5 @@
 import { performQuery } from "../query";
-import { WorkflowTemplate } from "../types/WorkflowTemplate";
+import { WorkflowTemplate } from "../types";
 import { $WorkflowTemplate } from "../types";
 
 const query = async (id: string) => {
@@ -38,24 +38,18 @@ WHERE {
   return bindings;
 };
 
-const template = (WorkflowTemplate: WorkflowTemplate) => {
+const template = (workflowTemplate: WorkflowTemplate) => {
   const {
-    label,
-    pico,
-    license,
-    comment,
+    hasTemplateDiagram,
+    hasDocumentation,
+    description,
+    hasNativeSystemTemplate,
+    createdInWorkflowSystem,
     id,
-    hasRunID,
-    executionStatus,
-    overallStartTime,
-    hasOriginalExecutionFile,
+    label,
     type,
-    contributor,
-    overallEndTime,
-    creator,
-    correspondsToTemplate,
-  } = WorkflowTemplate;
+  } = workflowTemplate;
   return `
-  This WorkflowTemplate (${$WorkflowTemplate.description}) is named ${label} and has a comment of ${comment}. It has an id of ${id} and has a run id of ${hasRunID}. It has an execution status of ${executionStatus}. It has an overall start time of ${overallStartTime}. It has an original execution file of ${hasOriginalExecutionFile}. It has a type of ${type}. It has a contributor of ${contributor}. It has an overall end time of ${overallEndTime}. It has a creator of ${creator}. It corresponds to a template of ${correspondsToTemplate}.
+  This WorkflowTemplate (${$WorkflowTemplate.description}) is named ${label} and has id ${id}. The description is ${description}. It was created in ${createdInWorkflowSystem} and has native system template ${hasNativeSystemTemplate}. It has documentation ${hasDocumentation} and template diagram ${hasTemplateDiagram}.
     `;
 };

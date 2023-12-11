@@ -7,24 +7,26 @@ const create = async (uri: string) => {
   const bindings = await query(uri);
   if (bindings.length > 0) {
     const binding = bindings[0];
-    console.log(bindings.toString());
 
     const workflowTemplate: WorkflowTemplate = {
       id: binding.get("correspondsToTemplate")?.value,
     };
 
+    const agent: Agent = {
+      id: binding.get("executedInWorkflowSystem")?.value,
+    };
+
     const workflowExecutionAccount = {
-      comment: binding.get("comment")?.value,
-      contributor: binding.get("contributor")?.value,
-      correspondsToTemplate: workflowTemplate,
-      creator: binding.get("creator")?.value,
-      hasOriginalLogFile: binding.get("hasOriginalExecutionFile")?.value,
-      hasRunID: binding.get("hasRunID")?.value,
+      overallEndTime: binding.get("overallEndTime")?.value,
       hasStatus: binding.get("executionStatus")?.value,
+      hasOriginalLogFile: binding.get("hasOriginalExecutionFile")?.value,
+      executedInWorkflowSystem: agent,
+      overallStartTime: binding.get("overallStartTime")?.value,
+      description: binding.get("description")?.value,
+      hasExecutionDiagram: binding.get("hasExecutionDiagram")?.value,
       id: binding.get("id")?.value,
       label: binding.get("label")?.value,
-      overallStartTime: binding.get("overallStartTime")?.value,
-      overallEndTime: binding.get("overallEndTime")?.value,
+      correspondsToTemplate: workflowTemplate,
       type: binding.get("type")?.value,
     };
     return template(workflowExecutionAccount);
@@ -68,18 +70,20 @@ WHERE {
 
 const template = (workflowExecutionAccount: WorkflowExecutionAccount) => {
   const {
-    id,
-    label,
-    description,
+    overallEndTime,
     hasStatus,
     hasOriginalLogFile,
     executedInWorkflowSystem,
     overallStartTime,
+    description,
     hasExecutionDiagram,
+    id,
+    label,
     correspondsToTemplate,
+    type,
   } = workflowExecutionAccount;
   console.log(workflowExecutionAccount);
-  return `This WorkflowExecutionAccount (${$WorkflowExecutionAccount.description}) is named ${label} and described as ${description} and has an id of ${id}. The state of this WorkflowExecutionAccount is ${hasStatus} and the log file is available ${hasOriginalLogFile}. The WorkflowExecutionAccount was executed in ${executedInWorkflowSystem} and started at ${overallStartTime}. The WorkflowExecutionAccount has a diagram available at ${hasExecutionDiagram}.  It was instantiated from the WorkflowTemplate ${correspondsToTemplate?.id} .`;
+  return `This WorkflowExecutionAccount (${$WorkflowExecutionAccount.description}) is named ${label} and described as ${description} and has an id of ${id}. The state of this WorkflowExecutionAccount is ${hasStatus} and the log file is available ${hasOriginalLogFile}. The WorkflowExecutionAccount was executed in ${executedInWorkflowSystem} and started at ${overallStartTime} and ended at ${overallEndTime}. The WorkflowExecutionAccount has a diagram available at ${hasExecutionDiagram}.  It was instantiated from the WorkflowTemplate ${correspondsToTemplate?.id} .`;
 };
 
 export { query, template, create };
